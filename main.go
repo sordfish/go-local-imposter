@@ -3,6 +3,7 @@ package main
 
 import (
 	"bytes"
+	"encoding/hex"
 	"log"
 	"net"
 	"strings"
@@ -48,6 +49,7 @@ func main() {
 		}
 
 		name := extractName(buf[:n])
+		log.Printf("Received mDNS query from %v: %s", src, hex.Dump(buf[:n]))
 		if name == "" {
 			continue
 		}
