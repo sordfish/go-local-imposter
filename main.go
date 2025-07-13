@@ -25,7 +25,7 @@ func main() {
 
 	addr := net.UDPAddr{
 		Port: 5353,
-		IP:   net.IPv4zero,
+		IP:   net.ParseIP("127.0.0.1"),
 	}
 	conn, err := net.ListenUDP("udp4", &addr)
 	if err != nil {
